@@ -5,11 +5,22 @@ Module Program
 
     Public Sub Main(args As String())
         Dim title As String = "Data Structures & Linq"
-        
+        Dim strNum As String = "1232319842"
+
+        ' String manipulation
         Console.WriteLine(title)
         Console.WriteLine(ReverseStringLinq(title))
         Console.WriteLine(ReverseOrderOfWordsLinq(title))
         Console.WriteLine(ReverseWordsCharsLinq(title))
+        
+        Console.WriteLine()
+        
+        Console.WriteLine("Sum: " & SumDigitsOfStringNumber(strNum))
+        Console.WriteLine("Multiply: " & MultiplyDigitsOfStringNumber(strNum))
+        Console.WriteLine("Subtract: " & SubtractDigitsOfStringNumber(strNum))
+
+        ' Array maniuplation
+        Console.WriteLine()
     End Sub
 
     ' Reverse a String with Linq
@@ -32,6 +43,30 @@ Module Program
                 .Aggregate(Function(c,d) d + c)
             ) _
             .Aggregate(Function(b, c) b + " " + c)
+    End Function
+
+    ' Sum the digits in a string
+    Public Function SumDigitsOfStringNumber(ByVal strNum As String)
+        Return strNum.ToCharArray() _
+            .Select(Function(a) a.ToString()) _
+            .Select(Function(a) Convert.ToInt32(a)) _
+            .Sum()
+    End Function
+
+    ' Multiply the digits in a string
+    Public Function MultiplyDigitsOfStringNumber(ByVal strNum As String)
+        Return strNum.ToCharArray() _
+            .Select(Function(a) a.ToString()) _
+            .Select(Function(a) Convert.ToInt32(a)) _
+            .Aggregate(Function(a, b) a * b)
+    End Function
+
+    ' Substract the digits in a string
+    Public Function SubtractDigitsOfStringNumber(ByVal strNum As String)
+        Return strNum.ToCharArray() _
+            .Select(Function(a) a.ToString()) _
+            .Select(Function(a) Convert.ToInt32(a)) _
+            .Aggregate(Function(a, b) a - b)
     End Function
 
 End Module
