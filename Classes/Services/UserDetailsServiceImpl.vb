@@ -22,7 +22,8 @@ Namespace Services
         ' Remove A User By Email
         Public Sub RemoveUserDetailsByEmail(ByVal email As String) Implements IUserDetailsService.RemoveUserDetailsByEmail
             Me._usersDetails = Me._usersDetails _ 
-                .Where(Function(e) e.Email <> email)
+                .Where(Function(e) e.Email <> email) _
+                .ToList()
         End Sub
 
         ' Get All Users
