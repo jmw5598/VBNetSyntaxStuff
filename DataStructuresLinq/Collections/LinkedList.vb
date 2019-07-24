@@ -2,6 +2,8 @@ Namespace Collections
     Public Class LinkedList(Of T)
         Implements IList(Of T)
 
+        Private _head As Node(Of T)
+
         Public Sub Add(ByVal node As Node(Of T)) Implements IList(Of T).Add
         
         End Sub
