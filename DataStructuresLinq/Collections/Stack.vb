@@ -4,6 +4,7 @@ Namespace Collections
 
         Private _head As Node(Of T)
 
+        ' Add to the top of the stack
         Public Function Pop() As T Implements IStack(Of T).Pop
             If Me._head Is Nothing Then
                 Return Nothing
@@ -14,6 +15,7 @@ Namespace Collections
             Return value
         End Function
 
+        ' Remove from the top of the stack
         Public Sub Push(ByVal value As T) Implements IStack(Of T).Push
             Dim newNode As Node(Of T) = New Node(Of T)(value)
             
@@ -24,6 +26,7 @@ Namespace Collections
             Me._head = newNode
         End Sub
 
+        ' Get value from top of the stack
         Public Function Peek() As T Implements IStack(Of T).Peek
             If Me._head Is Nothing Then
                 Return Nothing
@@ -32,6 +35,7 @@ Namespace Collections
             Return Me._head.Value
         End Function
 
+        ' Get size of the stack
         Public Function Count() As Integer Implements IStack(Of T).Count
             Dim counter As Integer = 0
             Dim current As Node(Of T) = Me._head
