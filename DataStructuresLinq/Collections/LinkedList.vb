@@ -21,7 +21,24 @@ Namespace Collections
         End Sub
         
         Public Sub Remove(ByVal value As T) Implements IList(Of T).Remove
-            ' TODO STILL
+            If Me._head IsNot Nothing AND Me._head.Value.CompareTo(value) = 0 Then
+                Me._head = Me._head.NextNode
+                Exit Sub
+            End If
+            
+            Dim previous As Node(Of T) = Me._head
+            Dim current As Node(Of T) = Me._head.NextNode
+
+            While current IsNot Nothing
+                If current.Value.CompareTo(value) = 0 Then
+                    previous.NextNode = current.NextNode
+                    Me._count -= 1
+                    Exit Sub
+                Else
+                    previous = current
+                    current = current.NextNode
+                End If
+            End While
         End Sub
         
         Public Function IndexOf(ByVal value As T) As Integer Implements IList(Of T).IndexOf

@@ -38,6 +38,10 @@ Module Program
         Console.WriteLine("Index of 5 = " & index)
         Console.WriteLine("value At Index " & index & ": " & list.GetValue(index))
 
+        Console.WriteLine("Removing value 2...")
+        list.Remove(2)
+        Console.WriteLine("New LinkedList Count: " & list.Count())
+
 
         Console.WriteLine()
         
